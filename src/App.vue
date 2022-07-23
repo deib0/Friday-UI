@@ -1,14 +1,14 @@
 <template>
-  <Deibo/>
+  <router-link to="/foo">Foo</router-link>
+  |
+  <router-link to="/bar">Bar</router-link>
+  <hr>
+  <router-view />
 </template>
 
 <script>
-import Deibo from './components/Deibo.vue'
 
 export default {
-  name: 'App',
-  components: {
-   Deibo 
-  }
+  name: 'App'
 }
 </script>
