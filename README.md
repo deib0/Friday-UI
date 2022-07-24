@@ -17,3 +17,7 @@ provide('menuVisible', menuVisible)
 // 子组件
 const menuVisible = inject<Ref<boolean>>('menuVisible') 
 ```
+
+```
+React.foreach
+```
