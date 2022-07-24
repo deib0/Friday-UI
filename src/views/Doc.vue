@@ -1,49 +1,39 @@
 <template>
-    <div>
-        <Topnav />
-        <div class="content">
-            <aside v-if="menuVisible">
-                <h2>组件列表</h2>
-                <ol>
-                    <li>
-                        <router-link to="/doc/switch">
-                            Switch 组件
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="doc/button">
-                            Button 组件
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/doc/dialog">
-                            Dialog 组件
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="doc/tabs">
-                            Tabs 组件
-                        </router-link>
-                    </li>
-                </ol>
-            </aside>
-            <main>主内容</main>
-        </div>
+  <div>
+    <Topnav />
+    <div class="content">
+      <aside v-if="menuVisible">
+        <h2>组件列表</h2>
+        <ol>
+          <li>
+            <router-link to="/doc/swich">Switch 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/button">Button 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/dialog">Dialog 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/tabs">Tabs 组件</router-link>
+          </li>
+        </ol>
+      </aside>
+      <main>主内容</main>
     </div>
+  </div>
 </template>
 <script lang="ts">
+import Topnav from "../components/Topnav.vue";
 import { inject, Ref } from 'vue';
-import Topnav from "../components/Topnav.vue"
 export default {
-    name:'Doc',
-    components: { Topnav },
-    setup(){
-        const menuVisible = inject<Ref<boolean>>('menuVisible') // get
-        return {menuVisible}
-    }
-}
+  components: { Topnav },
+  setup(){
+     const menuVisible = inject<Ref<boolean>>('menuVisible') // get
+    return {menuVisible}
+  }
+};
 </script>
-
 <style lang="scss" scoped>
 aside {
   background: lightblue;
@@ -61,5 +51,5 @@ aside {
       padding: 4px 0;
     }
   }
-}       
+}
 </style>
