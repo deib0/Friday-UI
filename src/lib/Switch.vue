@@ -1,15 +1,23 @@
 <template>
     <div>
-        <button>
+        <button @click="toggle" :class="x?'checked':''">
             <span></span>
         </button>        
+        {{x}}
     </div>
 </template>
 
 <script lang="ts">
+import { ref } from "vue" 
 export default {
     name:'Switch',
     setup() {        
+      let x =ref(false)
+      const toggle=()=>{
+        console.log('点击了')
+        x.value=!x.value
+      }
+      return {x,toggle}
     },
 }
 </script>
@@ -33,5 +41,10 @@ span{
   width: $h2;
   background:white;
   border-radius: $h2 / 2;
+}
+button.checked{
+  span {
+    left: calc(100% - #{$h2} - 2px);// 计算属性 
+  }
 }
 </style>
