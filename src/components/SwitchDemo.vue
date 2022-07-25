@@ -12,7 +12,6 @@ export default {
       const checked =ref(true)
       return {checked}
     },
-
     components: { Switch }
 }
 </script>

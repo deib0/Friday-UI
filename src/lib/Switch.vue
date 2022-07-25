@@ -45,7 +45,7 @@ span{
 }
 button.checked{
   span {
-    left: calc(100% - #{$h2} - 2px);// 计算属性 
+    left: calc(100% - #{$h2} - 2px);// calc()运算符前后空格
   }
 }
 </style>
