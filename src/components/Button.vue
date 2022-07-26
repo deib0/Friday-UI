@@ -1,11 +1,20 @@
 <template>
-    <div>
-        <button>按钮</button>
+    <div>        
+        <button :class="`them-${theme}`">
+            <slot/>
+        </button>
     </div>
 </template>
 
 <script lang="ts">
 export default {
-    name:"Button"
+    props:{theme:{type:String,
+    default:'button'
+    }},
+    name:"Button",
+    setup(props) {
+        const x =undefined
+        return {x}
+    }
 }
 </script>
