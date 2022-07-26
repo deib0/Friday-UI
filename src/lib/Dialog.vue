@@ -1,26 +1,41 @@
 <template>
-<div class="friday-dialog-overlay"></div>
-<div class="friday-dialog-wrapper">
-  <div class="friday-dialog">
-    <header>标题 <span class="friday-dialog-close"></span></header>
-    <main>
-      <p>第一行字</p>
-      <p>第二行字</p>
-    </main>
-    <footer>
-      <Button level="main">OK</Button>
-      <Button>Cancel</Button>
-    </footer>
-  </div>
-</div>
+<template v-if="visible">
+    <div class="friday-dialog-overlay" @click="back"></div>
+    <div class="friday-dialog-wrapper">
+      <div class="friday-dialog">
+        <header>标题 <span class="friday-dialog-close" @click="back"></span></header>
+        <main>
+          <p>第一行字</p>
+          <p>第二行字</p>
+        </main>
+        <footer>
+          <Button level="main">OK</Button>
+          <Button @click="back">Cancel</Button>
+        </footer>
+      </div>
+    </div>
+</template>
 </template>
 
 <script lang="ts">
 import Button from './Button.vue'
 export default {
-  components: {
+props: {
+    visible: {
+      type: Boolean,
+      default:false
+    }
+},
+components: {
     Button
-  }
+},
+setup(props,content){
+    const {visible}=props
+    const back =()=>{
+        content.emit('update:visible',!visible)
+    }
+    return {back}
+}
 }
 </script>
 
@@ -76,7 +91,7 @@ $border-color: #d9d9d9;
             content: '';
             position: absolute;
             height: 1px;
-            background: black;
+            background: rgb(4, 3, 3);
             width: 100%;
             top: 50%;
             left: 50%;
