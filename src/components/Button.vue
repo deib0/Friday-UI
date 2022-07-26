@@ -16,14 +16,19 @@ export default {
             type:String,
             default:'normal'
         },
+        level:{
+            type:String,
+            default:'normal'
+        },
     },
     name:"Button",
     setup(props) {
-        const {theme,size}=props
+        const {theme,size,level}=props
         const classes =computed(()=>{
             return {
                 [`friday-theme-${theme}`]:theme,
                 [`friday-size-${size}`]: size,
+                [`friday-level-${level}`]: level,
             }
         })
         return {classes}
@@ -37,6 +42,7 @@ $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
+$red: red;
 .friday-button {
   box-sizing: border-box;
   height: $h;
@@ -96,6 +102,28 @@ $radius: 4px;
         font-size: 12px;
         height: 20px;
         padding: 0 4px;
+    }
+    /* level-main */
+    &.friday-level-main {
+        background: $blue;
+        color: white;
+        border-color: $blue;
+        &:hover,
+        &:focus {
+            background: darken($blue, 10%);
+            border-color: darken($blue, 10%);
+        }
+    }
+    /* level-danger */
+    &.friday-level-danger {
+        background: $red;
+        border-color: $red;
+        color: white;
+        &:hover,
+        &:focus {
+            background: darken($red, 10%);
+            border-color: darken($red, 10%);
+        }
     }
 }
 </style>

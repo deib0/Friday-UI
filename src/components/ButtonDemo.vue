@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Button theme="button" size="big">
+    <Button theme="button" size="big" level="danger">
       我是一个按钮
     </Button>
-    <Button theme="link" size="small">
+    <Button theme="link" size="small" level="main">
       我是一个按钮
     </Button>
     <Button theme="text">
