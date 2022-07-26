@@ -1,16 +1,16 @@
 <template>
 <template v-if="visible">
-    <div class="friday-dialog-overlay" @click="back"></div>
+    <div class="friday-dialog-overlay" @click="onClickOverlay"></div>
     <div class="friday-dialog-wrapper">
       <div class="friday-dialog">
-        <header>标题 <span class="friday-dialog-close" @click="back"></span></header>
+        <header>标题 <span class="friday-dialog-close" @click="close"></span></header>
         <main>
           <p>第一行字</p>
           <p>第二行字</p>
         </main>
         <footer>
-          <Button level="main">OK</Button>
-          <Button @click="back">Cancel</Button>
+          <Button level="main" @click="onOk">OK</Button>
+          <Button @click="onCancel">Cancel</Button>
         </footer>
       </div>
     </div>
@@ -24,17 +24,41 @@ props: {
     visible: {
       type: Boolean,
       default:false
+    },
+    closeOnclickOverlay:{
+        type:Boolean,
+        default:true
+    },
+    ok:{
+        type:Function
+    },
+    cancel:{
+        type:Function
     }
 },
 components: {
     Button
 },
 setup(props,content){
-    const {visible}=props
-    const back =()=>{
-        content.emit('update:visible',!visible)
+    const close =()=>{
+        content.emit('update:visible',false)
     }
-    return {back}
+    // 点击遮罩层是否关闭？
+    const onClickOverlay=()=>{
+        if(props.closeOnclickOverlay){
+            close()
+        }
+    }
+    const onOk = () => {
+      if (props.ok?.() !== false) {
+        close()
+      }
+    }
+    const onCancel=()=>{
+        content.emit('cancel')
+        close()
+    }
+    return {close,onClickOverlay,onOk,onCancel}
 }
 }
 </script>

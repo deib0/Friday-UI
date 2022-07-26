@@ -1,5 +1,5 @@
 <template>
-  <Dialog v-model:visible="visible"></Dialog>
+  <Dialog v-model:visible="visible" :cancel="()=>{console.log('外部的cancel')}"></Dialog>
   <Button @click="show">展示</Button>
 </template>
 
@@ -12,7 +12,7 @@ export default{
   setup() {
     let visible=ref(false)
     const show =()=>{
-      visible.value=!visible.value
+      visible.value=true
     }
       return {visible,show}
   },
