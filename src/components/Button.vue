@@ -1,7 +1,7 @@
 <template>
-            <button class="friday-button" :class="`them-${theme}`">
-                <slot/>
-            </button>
+    <button class="friday-button" :class="`friday-theme-${theme}`">
+        <slot/>
+    </button>
 </template>
 
 <script lang="ts">
