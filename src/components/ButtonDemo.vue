@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Button theme="button">
+    <Button theme="button" size="big">
       我是一个按钮
     </Button>
-    <Button theme="link">
+    <Button theme="link" size="small">
       我是一个按钮
     </Button>
-    <Button theme="xxx">
+    <Button theme="text">
       我是一个按钮
     </Button>
     <Button>
