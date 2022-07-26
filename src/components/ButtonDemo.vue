@@ -9,7 +9,7 @@
     <Button theme="text">
       我是一个按钮
     </Button>
-    <Button>
+    <Button disabled>
       我是一个按钮
     </Button>
   </div>

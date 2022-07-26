@@ -1,6 +1,6 @@
 <template>
     <button 
-    class="friday-button" :class="classes">
+    class="friday-button" :class="classes" :disabled="disabled">
         <slot/>
     </button>
 </template>
@@ -20,6 +20,10 @@ export default {
             type:String,
             default:'normal'
         },
+        disabled:{
+            type:Boolean
+        },
+        
     },
     name:"Button",
     setup(props) {
@@ -43,6 +47,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey:grey;
 .friday-button {
   box-sizing: border-box;
   height: $h;
@@ -124,6 +129,14 @@ $red: red;
             background: darken($red, 10%);
             border-color: darken($red, 10%);
         }
+    }
+    /* disabled */
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
     }
 }
 </style>
