@@ -4,7 +4,7 @@
       <div 
       class="friday-tabs-nav-item" v-for="(t,index) in titles" :key="index"
       @click="selectTab(t)" :class="{'selected':t===selected}"
-      :ref="el=>{if(el)navItems[index]=el}"
+      :ref="el=>{if(t===selected)selectedItem=el}"
       >{{t}}
       </div>
       <div class="friday-tabs-nav-indicator" ref="indicator"></div>
@@ -18,30 +18,27 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
-import { computed,  onMounted, onUpdated, ref, watchEffect } from 'vue'
+import { computed,  onMounted, ref, watchEffect } from 'vue'
 export default {
-    props:{selected:String,yyy:Number},
+    props:{selected:String},
     setup(props, context) {
-        const navItems=ref<HTMLDivElement[]>([])
+        const selectedItem =ref<HTMLDivElement>(null)
         const container=ref<HTMLDivElement>(null)
         const indicator=ref<HTMLDivElement>(null)
         onMounted(()=>{
             watchEffect(() => {
-            console.log('effect')
-            // 动态获得indicator的宽度
-            const navItem=navItems.value.find(item=>item.classList.contains('selected'))
-            const width=navItem.getBoundingClientRect().width
-            indicator.value.style.width=width+'px'
-            // 动态获得indicator的位置
-            const {left:left1}=container.value.getBoundingClientRect()
-            const {left:left2}=navItem.getBoundingClientRect()
-            const left =left2-left1+'px'
-            indicator.value.style.left=left
+                // 动态获得indicator的宽度
+                const width=selectedItem.value.getBoundingClientRect().width
+                indicator.value.style.width=width+'px'
+                // 动态获得indicator的位置
+                const {left:left1}=container.value.getBoundingClientRect()
+                const {left:left2}=selectedItem.value.getBoundingClientRect()
+                const left =left2-left1+'px'
+                indicator.value.style.left=left
             })
         })
-        // 拿到子组件
+        // 拿到子组件并检查子组件的类型
         const defaults = context.slots.default()
-        // 检查子组件的类型
         defaults.forEach((tag) => {
         if (tag.type !== Tab) {
             throw new Error('Tabs 子标签必须是 Tab')
@@ -62,7 +59,7 @@ export default {
         titles,
         selectTab,
         current,
-        navItems,
+        selectedItem,
         indicator,
         container
         }
@@ -81,7 +78,6 @@ $border-color: #d9d9d9;
         color: $color;
         border-bottom: 1px solid $border-color;
         &-item {
-            border: 1px solid #000;
             padding: 8px 0;
             margin: 0 16px;
             cursor: pointer;
