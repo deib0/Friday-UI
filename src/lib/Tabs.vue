@@ -1,6 +1,6 @@
 <template>
 <div class="friday-tabs">
-  <div class="friday-tabs-nav">
+  <div class="friday-tabs-nav" ref="container">
       <div 
       class="friday-tabs-nav-item" v-for="(t,index) in titles" :key="index"
       @click="selectTab(t)" :class="{'selected':t===selected}"
@@ -18,17 +18,26 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
-import { computed, onMounted, ref } from 'vue'
+import { computed,  onMounted, onUpdated, ref, watchEffect } from 'vue'
 export default {
     props:{selected:String,yyy:Number},
     setup(props, context) {
         const navItems=ref<HTMLDivElement[]>([])
+        const container=ref<HTMLDivElement>(null)
         const indicator=ref<HTMLDivElement>(null)
-        onMounted(() => {
+        onMounted(()=>{
+            watchEffect(() => {
+            console.log('effect')
             // 动态获得indicator的宽度
             const navItem=navItems.value.find(item=>item.classList.contains('selected'))
             const width=navItem.getBoundingClientRect().width
             indicator.value.style.width=width+'px'
+            // 动态获得indicator的位置
+            const {left:left1}=container.value.getBoundingClientRect()
+            const {left:left2}=navItem.getBoundingClientRect()
+            const left =left2-left1+'px'
+            indicator.value.style.left=left
+            })
         })
         // 拿到子组件
         const defaults = context.slots.default()
@@ -54,7 +63,8 @@ export default {
         selectTab,
         current,
         navItems,
-        indicator
+        indicator,
+        container
         }
     }
 }
@@ -89,6 +99,7 @@ $border-color: #d9d9d9;
             left: 0;
             bottom: -1px;
             width: 100px;
+            transition: all 250ms;
         }
     }
     &-content {
