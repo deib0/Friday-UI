@@ -1,5 +1,6 @@
 <template>
-<Teleport to="body">
+<!-- 直接添加到body,脱离当前层迭上下文 -->
+<Teleport to="body"> 
     <template v-if="visible">
         <div class="friday-dialog-overlay" @click="onClickOverlay"></div>
         <div class="friday-dialog-wrapper">

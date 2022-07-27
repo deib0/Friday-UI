@@ -1,24 +1,26 @@
 <template>
-  <Dialog v-model:visible="visible">
-  <template v-slot:title>提示</template>
-  <template v-slot:content>content在此</template>
-  </Dialog>
-  <Button @click="show">展示</Button>
+  <Button @click="showDialog">展示</Button>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
 import Dialog from '../lib/Dialog.vue'
 import Button from '../lib/Button.vue'
-
+import {openDialog} from '../lib/openDialog'
 export default{
   components:{ Dialog, Button },
   setup() {
-    let visible=ref(false)
-    const show =()=>{
-      visible.value=true
+    // 展示Dialog
+    const showDialog=()=>{
+      // 输入Dialog的配置项
+      const options={
+        title(){return '提示'},
+        content(){return '内容'},
+        ok(){console.log('ok')},
+        cancel(){console.log('cancel')}
+        }
+      openDialog(options)
     }
-      return {visible,show}
+      return {showDialog}
   },
 }
 </script>
