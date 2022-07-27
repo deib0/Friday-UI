@@ -4,9 +4,10 @@
       <div 
       class="friday-tabs-nav-item" v-for="(t,index) in titles" :key="index"
       @click="selectTab(t)" :class="{'selected':t===selected}"
+      :ref="el=>{if(el)navItems[index]=el}"
       >{{t}}
       </div>
-      <div class="friday-tabs-nav-indicator"></div>
+      <div class="friday-tabs-nav-indicator" ref="indicator"></div>
   </div>
   <div class="friday-tabs-content">
       <component class="friday-tabs-content-item" 
@@ -17,10 +18,18 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 export default {
     props:{selected:String,yyy:Number},
     setup(props, context) {
+        const navItems=ref<HTMLDivElement[]>([])
+        const indicator=ref<HTMLDivElement>(null)
+        onMounted(() => {
+            // 动态获得indicator的宽度
+            const navItem=navItems.value.find(item=>item.classList.contains('selected'))
+            const width=navItem.getBoundingClientRect().width
+            indicator.value.style.width=width+'px'
+        })
         // 拿到子组件
         const defaults = context.slots.default()
         // 检查子组件的类型
@@ -43,7 +52,9 @@ export default {
         defaults,
         titles,
         selectTab,
-        current
+        current,
+        navItems,
+        indicator
         }
     }
 }
