@@ -1,6 +1,6 @@
 <template>
 <Tabs>
-  <Tab></Tab>
+  <Tab title="标题"></Tab>
 </Tabs>
 </template>
 
