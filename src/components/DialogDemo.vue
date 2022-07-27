@@ -1,5 +1,8 @@
 <template>
-  <Dialog v-model:visible="visible" :cancel="()=>{console.log('外部的cancel')}"></Dialog>
+  <Dialog v-model:visible="visible">
+  <template v-slot:title>提示</template>
+  <template v-slot:content>content在此</template>
+  </Dialog>
   <Button @click="show">展示</Button>
 </template>
 

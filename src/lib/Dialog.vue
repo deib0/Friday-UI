@@ -3,10 +3,11 @@
     <div class="friday-dialog-overlay" @click="onClickOverlay"></div>
     <div class="friday-dialog-wrapper">
       <div class="friday-dialog">
-        <header>标题 <span class="friday-dialog-close" @click="close"></span></header>
+        <header>
+            <slot name="title" />
+            <span class="friday-dialog-close" @click="close"></span></header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+            <slot name="content"/>
         </main>
         <footer>
           <Button level="main" @click="onOk">OK</Button>
