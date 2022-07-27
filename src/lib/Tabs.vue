@@ -6,6 +6,7 @@
       @click="selectTab(t)" :class="{'selected':t===selected}"
       >{{t}}
       </div>
+      <div class="friday-tabs-nav-indicator"></div>
   </div>
   <div class="friday-tabs-content">
       <component class="friday-tabs-content-item" 
@@ -53,24 +54,34 @@ $blue: #40a9ff;
 $color: #333;
 $border-color: #d9d9d9;
 .friday-tabs {
-  &-nav {
-    display: flex;
-    color: $color;
-    border-bottom: 1px solid $border-color;
-    &-item {
-      padding: 8px 0;
-      margin: 0 16px;
-      cursor: pointer;
-      &:first-child {
-        margin-left: 0;
-      }
-      &.selected {
-        color: $blue;
-      }
+    &-nav {
+        display: flex;
+        position: relative;
+        color: $color;
+        border-bottom: 1px solid $border-color;
+        &-item {
+            border: 1px solid #000;
+            padding: 8px 0;
+            margin: 0 16px;
+            cursor: pointer;
+            &:first-child {
+                margin-left: 0;
+            }
+            &.selected {
+                color: $blue;
+            }
+        }
+        &-indicator {
+            position: absolute;
+            height: 3px;
+            background: $blue;
+            left: 0;
+            bottom: -1px;
+            width: 100px;
+        }
     }
-  }
-  &-content {
-    padding: 8px 0;
-  }
+    &-content {
+        padding: 8px 0; 
+    }
 }
 </style>
