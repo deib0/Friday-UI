@@ -1,21 +1,23 @@
 <template>
-<template v-if="visible">
-    <div class="friday-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="friday-dialog-wrapper">
-      <div class="friday-dialog">
-        <header>
-            <slot name="title" />
-            <span class="friday-dialog-close" @click="close"></span></header>
-        <main>
-            <slot name="content"/>
-        </main>
-        <footer>
-          <Button level="main" @click="onOk">OK</Button>
-          <Button @click="onCancel">Cancel</Button>
-        </footer>
-      </div>
-    </div>
-</template>
+<Teleport to="body">
+    <template v-if="visible">
+        <div class="friday-dialog-overlay" @click="onClickOverlay"></div>
+        <div class="friday-dialog-wrapper">
+          <div class="friday-dialog">
+            <header>
+                <slot name="title" />
+                <span class="friday-dialog-close" @click="close"></span></header>
+            <main>
+                <slot name="content"/>
+            </main>
+            <footer>
+              <Button level="main" @click="onOk">OK</Button>
+              <Button @click="onCancel">Cancel</Button>
+            </footer>
+          </div>
+        </div>
+    </template>
+</Teleport>
 </template>
 
 <script lang="ts">
