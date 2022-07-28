@@ -24,7 +24,8 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: lightgreen;
+  background: rgb(222,252,250);
+  background: linear-gradient(135deg, rgba(222,252,250,1) 0%, rgba(188,235,232,1) 100%);
   > .actions{
     padding: 8px 0;
     a {
