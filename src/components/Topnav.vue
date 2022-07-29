@@ -1,11 +1,20 @@
 <template>
   <div class="topnav">
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <router-link to="/">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-home" ></use>
+        </svg>
+      </router-link>
+    </div>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li>文档</li>
     </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
+    <span class="toggleAside" @click="toggleMenu">
+      <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon--menu"></use>
+      </svg>
+    </span>
   </div>
 </template>
 <script lang="ts">
@@ -16,11 +25,15 @@ export default {
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value;
     };
-    return { toggleMenu };
+    return { toggleMenu};
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
+$color:#007974;
+.svg {
+  border: 1px solid #000;
+}
 .topnav {
   display: flex;
   padding: 16px;
@@ -34,11 +47,17 @@ export default {
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    cursor: pointer;
+    .icon{
+      width: 24px;
+      height: 24px;
+    }
   }
   > .menu {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+    color:$color;
     > li {
       margin: 0 1em;
     }
@@ -46,7 +65,6 @@ export default {
   > .toggleAside {
     width: 24px;
     height: 24px;
-    background: red;
     position: absolute;
     left: 16px;
     top: 50%;
