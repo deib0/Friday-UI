@@ -3,24 +3,28 @@
   <div class="demo">
     <h2>常规用法</h2>
     <div class="demo-component">
-      <Switch1Demo/>
+      <component :is="Switch1Demo" />
     </div>
     <div class="demo-actions">
       <button>查看代码</button>
     </div>
     <div class="demo-code">
-      <pre>{{Switch1Demo.__sourceCode}};</pre>
+      <pre class="language-html" v-html="Prism.highlight(Switch1Demo.__sourceCode, Prism.languages.html, 'html')" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Switch1Demo from './Switch1Demo.vue'
+import 'prismjs';
+import 'prismjs/themes/prism.css'
+const Prism = (window as any).Prism
 export default {
     components: { Switch1Demo },
     setup(){
       return {
-      Switch1Demo 
+      Switch1Demo,
+      Prism 
       }
     }
 }
