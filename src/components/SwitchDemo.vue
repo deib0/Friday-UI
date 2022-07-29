@@ -3,25 +3,21 @@
   <div class="demo">
     <h2>常规用法</h2>
     <div class="demo-component">
-      <Switch v-model:checked="checked" />
+      <Switch1Demo/>
     </div>
     <div class="demo-actions">
-      <Button>查看代码</Button>
+      <button>查看代码</button>
     </div>
     <div class="demo-code">
       <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
-import Switch from '../lib/Switch.vue'
+import Switch1Demo from './Switch1Demo.vue'
 export default {
-    setup() {
-      const checked =ref(true)
-      return {checked}
-    },
-    components: { Switch }
+    components: { Switch1Demo }
 }
 </script>
 
