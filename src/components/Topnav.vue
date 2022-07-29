@@ -10,9 +10,9 @@
     <ul class="menu">
       <li>文档</li>
     </ul>
-    <span class="toggleAside" @click="toggleMenu">
+    <span class="toggleAside" @click="toggleMenu" v-if="menuToggleVisible">
       <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon--menu"></use>
+          <use xlink:href="#icon-caidan"></use>
       </svg>
     </span>
   </div>
@@ -20,6 +20,12 @@
 <script lang="ts">
 import { inject, Ref } from "vue";
 export default {
+  props:{
+    menuToggleVisible:{
+      type:Boolean,
+      default:false
+    }
+  },
   setup() {
     const menuVisible = inject<Ref<boolean>>("menuVisible"); // get
     const toggleMenu = () => {
