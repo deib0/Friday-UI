@@ -9,7 +9,7 @@
       <button>查看代码</button>
     </div>
     <div class="demo-code">
-      <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+      <pre>{{Switch1Demo.__sourceCode}};</pre>
     </div>
   </div>
 </template>
@@ -17,7 +17,12 @@
 <script lang="ts">
 import Switch1Demo from './Switch1Demo.vue'
 export default {
-    components: { Switch1Demo }
+    components: { Switch1Demo },
+    setup(){
+      return {
+      Switch1Demo 
+      }
+    }
 }
 </script>
 
