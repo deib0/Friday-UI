@@ -1,20 +1,46 @@
 <template>
-  <div class="topnav">
-    <div class="logo">
-      <router-link to="/">
+  <div class="nav-wrapper">
+    <nav class="nav topnav">
+      <div class="logo">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-home" ></use>
+          </svg>
+      </div>
+      <ul>
+        <li class="doc">文档
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-xiangxia" ></use>
+          </svg>
+          <ul class="doc-menu">
+            <li>开始</li>
+            <li>安装</li>
+            <li>介绍</li>
+            <li>组件</li>
+          </ul>
+        </li>
+        <li>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-github" ></use>
+          </svg>
+        </li>
+        <li>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-mail" ></use>
+          </svg>
+        </li>
+      </ul>
+    </nav>    
+  </div>
+  <div class="nav-wrapper menunav-wrapper">
+    <div class="nav">
+      <div class="menu">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-home" ></use>
+          <use xlink:href="#icon-menu" ></use>
         </svg>
-      </router-link>
+        菜单
+      </div>
+      <span>返回顶部</span>
     </div>
-    <ul class="menu">
-      <li>文档</li>
-    </ul>
-    <span class="toggleAside" @click="toggleMenu" v-if="menuToggleVisible">
-      <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-caidan"></use>
-      </svg>
-    </span>
   </div>
 </template>
 <script lang="ts">
@@ -36,57 +62,63 @@ export default {
 };
 </script>
 <style lang="scss" >
-$color:#007974;
-.svg {
-  border: 1px solid #000;
-}
-.topnav {
-  display: flex;
-  padding: 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
+.nav-wrapper{
+  height: 55px;
   width: 100%;
-  z-index: 10;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  > .logo {
-    max-width: 6em;
-    margin-right: auto;
-    cursor: pointer;
-    .icon{
-      width: 24px;
-      height: 24px;
-    }
-  }
-  > .menu {
+  >.nav{
+    padding: 0 32px;
+    line-height: 55px;
+    width: 1440px;
     display: flex;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    color:$color;
-    > li {
-      margin: 0 1em;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .topnav{
+    >ul{
+      display: flex;
+      flex-direction: row;
+      >li{
+        padding: 0 12px;
+        &.doc{
+          position: relative;
+          .doc-menu{
+            display: none;
+            background: #fff;
+            border-radius: 5px;
+            padding: 12px 0;
+            width: 190px;
+            font-size: 13px;
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            box-shadow: 0px 0px 2px .1px black;
+            >li{
+              padding: 0 16px;
+              &:hover{
+                color:#42b883;
+              }
+            }
+          }
+          &:hover{
+            .doc-menu{
+              display: block;
+            }
+          }
+        }
+      }
     }
   }
-  > .toggleAside {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
+}
+.menunav-wrapper{
     display: none;
   }
-  @media (max-width: 500px) {
-    > .menu {
-      display: none;
-    }
-    > .logo {
-      margin: 0 auto;
-    }
-    > .toggleAside {
-      display: inline-block;
-    }
+@media (max-width:960px) {
+  .menunav-wrapper{
+    display: block;
   }
 }
 </style>
