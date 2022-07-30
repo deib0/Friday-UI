@@ -6,7 +6,7 @@
         <span class="accent">星期五</span>
         UI 框架
       </h1>
-      <p class="description">一款用于构建 Web 界面，易用且优雅，功能丰富的UI框架。</p>
+      <p class="description">一款用于构建 Web 界面，易用优雅，且功能丰富的UI框架。</p>
       <p class="actions">
         <router-link to="/doc" class="get-started">快速开始
           <svg class="icon" aria-hidden="true">
@@ -70,7 +70,7 @@ $grey:#3c3c3cb3;
   >.tagline{
     display: flex;
     flex-direction: column;
-    font-size: 76px;
+    font-size: 48px;
     letter-spacing: -.5px;
     font-weight: 900;
     text-align: center;
@@ -82,10 +82,11 @@ $grey:#3c3c3cb3;
     }
   }
   >.description{
-    font-size: 22px;
+    font-size: 16px;
     color: $grey;
     margin-top: 24px;
     margin-bottom: 48px;
+
   }
   > .actions{
     margin-top: 10px;
@@ -153,7 +154,15 @@ $grey:#3c3c3cb3;
     }
   }
 }
-@media (min-width: 1000px){
+@media (min-width: 960px){
+  .banner{
+    >.tagline{
+    font-size: 76px;
+  }
+    >.description{
+      font-size: 22px;
+    }
+  }
   .features{
     flex-direction: row;
     justify-content: center;
