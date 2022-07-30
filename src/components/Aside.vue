@@ -108,6 +108,7 @@ $grey:#3c3c3cb3;
 $green: #42B883;
 .aside{
       width: 250px;
+      height: 100%;
       font-weight: 700;
       padding: 0 32px;
       overflow-y: scroll;

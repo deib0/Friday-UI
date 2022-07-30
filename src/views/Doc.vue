@@ -49,6 +49,7 @@ $green: #42B883;
     top: 0;
     left: -250px;
     transition: left 500ms;
+    z-index: 1;
     &.xxx{
       left: 0;
     }
@@ -56,6 +57,7 @@ $green: #42B883;
   .dialog{
     visibility: hidden;
     position: absolute;
+    z-index: 1;
     top: 0;
     right: 0;
     width: calc(100% - 250px);
