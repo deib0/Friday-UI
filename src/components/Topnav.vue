@@ -2,9 +2,11 @@
   <div class="nav-wrapper">
     <nav class="nav topnav">
       <div class="logo">
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-home" ></use>
-          </svg>
+          <a href="#/">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-logo" ></use>
+            </svg>
+          </a>
       </div>
       <ul>
         <li class="doc">文档
@@ -12,21 +14,22 @@
             <use xlink:href="#icon-xiangxia" ></use>
           </svg>
           <ul class="doc-menu">
-            <li>开始</li>
-            <li>安装</li>
-            <li>介绍</li>
-            <li>组件</li>
+            <li><a href="#/doc/get-started">开始</a></li>
+            <li><a href="#/doc/install">安装</a></li>
+            <li><a href="#/doc/introduce">介绍</a></li>
           </ul>
         </li>
         <li>
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-github" ></use>
-          </svg>
+          <a href="https://github.com/">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-github" ></use>
+            </svg>
+          </a>
         </li>
-        <li>
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-mail" ></use>
-          </svg>
+        <li @click="copyEmail">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-mail" ></use>
+              </svg>
         </li>
       </ul>
     </nav>    
@@ -52,10 +55,30 @@ export default {
     }
   },
   setup(props,context) {
+    const copyEmail=()=>{
+      const text = '596740705@qq.com';
+      if (navigator.clipboard) {
+        console.log('true')
+        navigator.clipboard.writeText(text);
+        alert('copy!')
+      } else {
+        console.log('false')
+        var textarea = document.createElement('textarea');
+        document.body.appendChild(textarea);
+        textarea.style.position = 'fixed';
+        textarea.style.clip = 'rect(0 0 0 0)';
+        textarea.style.top = '10px';
+        textarea.value = text;
+        textarea.select();
+        document.execCommand('copy', true);
+        document.body.removeChild(textarea);
+        alert('copy!')
+      };
+    }
     const toggleMenu = () => {
       context.emit('update:menuVisible',!props.menuVisible)
     };
-    return { toggleMenu};
+    return { toggleMenu,copyEmail};
   },
 };
 </script>
@@ -75,10 +98,17 @@ export default {
     justify-content: space-between;
   }
   .topnav{
+    >.logo{
+      .icon{
+        width: 100px;
+        height: 50px;
+      }
+    }
     >ul{
       display: flex;
       flex-direction: row;
       >li{
+        cursor: pointer;
         padding: 0 12px;
         &.doc{
           position: relative;
@@ -97,6 +127,10 @@ export default {
               &:hover{
                 color:#42b883;
               }
+              >a{
+                display: block;
+                width: 100%;
+              }
             }
           }
           &:hover{
@@ -112,6 +146,9 @@ export default {
       }
     }
   }
+}
+.menu{
+  cursor: pointer;
 }
 .menunav-wrapper{
     display: none;
