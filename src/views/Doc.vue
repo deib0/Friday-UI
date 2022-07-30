@@ -1,103 +1,10 @@
 <template>
-  <div class="layout">
-    <Topnav class="nav" menuToggleVisible="true" />
+  <div class="layout" >
+    <Aside class="aside2" :class="{'xxx':menuVisible}" />
+    <div class="dialog" :class="{'xxx':menuVisible}" @click="()=>menuVisible=false"></div>
+    <Topnav class="nav" v-model:menuVisible="menuVisible" />
     <div class="content">
-      <aside v-if="menuVisible">
-        <h2>菜单</h2>
-        <ol>
-          <li>
-            <router-link to="/doc/introduce">介绍</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/install">安装</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/get-started">开始使用</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/switch">Switch 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/button">Button 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/dialog">Dialog 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/tabs">Tabs 组件</router-link>
-          </li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-        </ol>
-      </aside>
+      <Aside class="aside1" />
       <main>
         <router-view />
       </main>
@@ -106,11 +13,12 @@
 </template>
 <script lang="ts">
 import Topnav from "../components/Topnav.vue";
-import { inject, Ref } from "vue";
+import Aside from "../components/Aside.vue";
+import {  ref } from "vue";
 export default {
-  components: { Topnav },
+  components: { Topnav, Aside },
   setup() {
-    const menuVisible = inject<Ref<boolean>>("menuVisible"); // get
+    const menuVisible = ref(false)
     return { menuVisible };
   },
 };
@@ -121,6 +29,7 @@ $green: #42B883;
 .layout {
   height: 100vh;
   display: flex;
+  position: relative;
   flex-direction: column;
   .content{
     display: flex;
@@ -128,34 +37,33 @@ $green: #42B883;
     width: 1440px;
     margin: 0 auto;
     overflow: hidden;
-    aside{
-      width: 222px;
-      font-weight: 700;
-      padding: 0 32px;
-      overflow-y: scroll;
-      >h2{
-        padding: 10px 0;
-        font-size: 18px;
-        text-align: center;
-        border-bottom: 1px solid #e7e7e7;
-      }
-      >ol{
-        >li{
-          padding: 10px;
-          color: $grey;
-          :hover{
-            color: #213547;
-          }
-          .router-link-active{
-            color: $green;
-          }
-        }
-      }
-    }
     main{
       flex-grow: 1;
       flex-shrink: 1;
       padding: 62px;
+    }
+  }
+  .aside2{
+    position: absolute;
+    background: #fff;
+    top: 0;
+    left: -250px;
+    transition: left 500ms;
+    &.xxx{
+      left: 0;
+    }
+  }
+  .dialog{
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 250px);
+    height: 100%;
+    &.xxx{
+      transition: all 500ms;
+      visibility: visible;
+      background: rgba(0,0,0,.6);
     }
   }
 }
@@ -163,7 +71,7 @@ $green: #42B883;
   .layout{
     .content{
       width: 100%;
-      aside{
+      .aside1{
         display: none;
       }
     }
@@ -173,6 +81,10 @@ $green: #42B883;
   .layout{
     .content{
       width: 960px;
+    }
+    .aside2,
+    .dialog{
+        display: none !important;
     }
   }
 }

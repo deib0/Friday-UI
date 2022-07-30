@@ -33,7 +33,7 @@
   </div>
   <div class="nav-wrapper menunav-wrapper">
     <div class="nav">
-      <div class="menu">
+      <div class="menu" @click="toggleMenu">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-menu" ></use>
         </svg>
@@ -44,24 +44,22 @@
   </div>
 </template>
 <script lang="ts">
-import { inject, Ref } from "vue";
 export default {
   props:{
-    menuToggleVisible:{
+    menuVisible:{
       type:Boolean,
       default:false
     }
   },
-  setup() {
-    const menuVisible = inject<Ref<boolean>>("menuVisible"); // get
+  setup(props,context) {
     const toggleMenu = () => {
-      menuVisible.value = !menuVisible.value;
+      context.emit('update:menuVisible',!props.menuVisible)
     };
     return { toggleMenu};
   },
 };
 </script>
-<style lang="scss" >
+<style lang="scss" scoped>
 .nav-wrapper{
   height: 55px;
   width: 100%;
