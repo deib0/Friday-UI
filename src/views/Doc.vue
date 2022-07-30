@@ -51,6 +51,7 @@ export default {
   }
 .layout {
   display: flex;
+  border: 1px solid #000;
   flex-direction: column;
   height: 100vh;
   > .nav {
@@ -58,14 +59,15 @@ export default {
   }
   > .content {
     flex-grow: 1;
-    padding-top: 60px;
-    padding-left: 156px;
+    width: 1440px;
+    margin: 0 auto;
     @media (max-width: 500px) {
       padding-left: 0; 
     }
   }
 }
 .content {
+  border: 1px solid red;
   display: flex;
   > aside {
     flex-shrink: 0;
@@ -76,12 +78,9 @@ export default {
   }
 }
 aside {
-  background: lightblue;
-  width: 150px;
+  border: 1px solid green;
+  width: 223px;
   padding: 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
   padding-top: 70px;
   height: 100%;
   > h2 {
