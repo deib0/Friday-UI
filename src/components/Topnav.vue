@@ -34,7 +34,7 @@
       </ul>
     </nav>    
   </div>
-  <div class="nav-wrapper menunav-wrapper">
+  <div class="nav-wrapper menunav-wrapper" v-if="menuNavVisible">
     <div class="nav">
       <div class="menu" @click="toggleMenu">
         <svg class="icon" aria-hidden="true">
@@ -42,7 +42,7 @@
         </svg>
         菜单
       </div>
-      <span>返回顶部</span>
+      <span @click="scrollTop">返回顶部</span>
     </div>
   </div>
 </template>
@@ -52,6 +52,10 @@ export default {
     menuVisible:{
       type:Boolean,
       default:false
+    },
+    menuNavVisible:{
+      type:Boolean,
+      default:true
     }
   },
   setup(props,context) {
@@ -75,10 +79,13 @@ export default {
         alert('copy!')
       };
     }
-    const toggleMenu = () => {
+  const scrollTop=()=>{
+    context.emit('scrollTop')
+  };    
+  const toggleMenu = () => {
       context.emit('update:menuVisible',!props.menuVisible)
     };
-    return { toggleMenu,copyEmail};
+    return { toggleMenu,copyEmail,scrollTop};
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Topnav />
+    <Topnav :menuNavVisible="false" />
     <div class="banner">
       <h1 class="tagline">
         <span class="accent">星期五</span>

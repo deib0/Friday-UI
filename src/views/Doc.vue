@@ -2,10 +2,10 @@
   <div class="layout" >
     <Aside class="aside2" :class="{'xxx':menuVisible}" />
     <div class="dialog" :class="{'xxx':menuVisible}" @click="()=>menuVisible=false"></div>
-    <Topnav class="nav" v-model:menuVisible="menuVisible" />
+    <Topnav class="nav" v-model:menuVisible="menuVisible" v-on:scrollTop="scrollTop" />
     <div class="content">
       <Aside class="aside1" />
-      <main>
+      <main ref="main">
         <router-view />
       </main>
     </div>
@@ -19,7 +19,14 @@ export default {
   components: { Topnav, Aside },
   setup() {
     const menuVisible = ref(false)
-    return { menuVisible };
+    const main = ref<HTMLDivElement>(null)
+    const scrollTop=()=>{
+      console.log('scrollTOp')
+      console.log(main.value)
+      document.body.scrollTop = 0;
+      main.value.scrollTop = 0; 
+    }
+    return { menuVisible,scrollTop,main };
   },
 };
 </script>
@@ -41,6 +48,7 @@ $green: #42B883;
       flex-grow: 1;
       flex-shrink: 1;
       padding: 62px;
+      overflow-y: auto;
     }
   }
   .aside2{
