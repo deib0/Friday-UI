@@ -3,7 +3,7 @@
     <Topnav class="nav" menuToggleVisible="true" />
     <div class="content">
       <aside v-if="menuVisible">
-        <h2>文档</h2>
+        <h2>菜单</h2>
         <ol>
           <li>
             <router-link to="/doc/introduce">介绍</router-link>
@@ -26,6 +26,76 @@
           <li>
             <router-link to="/doc/tabs">Tabs 组件</router-link>
           </li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
+          <li>1111</li>
         </ol>
       </aside>
       <main>
@@ -46,53 +116,71 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  .router-link-active{
-    color: red;
-  }
+$grey:#3c3c3cb3;
+$green: #42B883;
 .layout {
-  display: flex;
-  border: 1px solid #000;
-  flex-direction: column;
   height: 100vh;
-  > .nav {
-    flex-shrink: 0;
-  }
-  > .content {
-    flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  .content{
+    display: flex;
+    flex-direction: row;
     width: 1440px;
     margin: 0 auto;
-    @media (max-width: 500px) {
-      padding-left: 0; 
+    overflow: hidden;
+    aside{
+      width: 222px;
+      font-weight: 700;
+      padding: 0 32px;
+      overflow-y: scroll;
+      >h2{
+        padding: 10px 0;
+        font-size: 18px;
+        text-align: center;
+        border-bottom: 1px solid #e7e7e7;
+      }
+      >ol{
+        >li{
+          padding: 10px;
+          color: $grey;
+          :hover{
+            color: #213547;
+          }
+          .router-link-active{
+            color: $green;
+          }
+        }
+      }
+    }
+    main{
+      flex-grow: 1;
+      flex-shrink: 1;
+      padding: 62px;
     }
   }
 }
-.content {
-  border: 1px solid red;
-  display: flex;
-  > aside {
-    flex-shrink: 0;
-  }
-  > main {
-    flex-grow: 1;
-    padding: 16px;
-  }
-}
-aside {
-  border: 1px solid green;
-  width: 223px;
-  padding: 16px;
-  padding-top: 70px;
-  height: 100%;
-  > h2 {
-    margin-bottom: 4px;
-  }
-  > ol {
-    > li {
-      padding: 4px 0;
+@media(max-width:960px){
+  .layout{
+    .content{
+      width: 100%;
+      aside{
+        display: none;
+      }
     }
   }
 }
-main {
-  overflow: auto;
+@media(min-width:960px){
+  .layout{
+    .content{
+      width: 960px;
+    }
+  }
+}
+@media (min-width:1440px) {
+  .layout {
+      .content{
+        width: 1440px;
+      }
+  }
 }
 </style>

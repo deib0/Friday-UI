@@ -72,7 +72,6 @@ export default {
   >.nav{
     padding: 0 32px;
     line-height: 55px;
-    width: 1440px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -86,18 +85,17 @@ export default {
         &.doc{
           position: relative;
           .doc-menu{
-            display: none;
+            transition: all 250ms ;
+            visibility:hidden;
             background: #fff;
             border-radius: 5px;
-            padding: 12px 0;
             width: 190px;
-            font-size: 13px;
+            font-size: 5px;
             position: absolute;
-            top: 30px;
-            right: 10px;
+            top: 10px;
+            right: 15px;
             box-shadow: 0px 0px 2px .1px black;
             >li{
-              padding: 0 16px;
               &:hover{
                 color:#42b883;
               }
@@ -105,7 +103,11 @@ export default {
           }
           &:hover{
             .doc-menu{
-              display: block;
+              visibility:visible;
+              padding: 12px 0;
+              font-size: 13px;
+              padding: 0 16px;
+              top: 40px;
             }
           }
         }
@@ -115,10 +117,26 @@ export default {
 }
 .menunav-wrapper{
     display: none;
+}
+@media (min-width:960px) {
+  .nav{
+    width: 100%;
   }
-@media (max-width:960px) {
+}
+@media(max-width:960px){
   .menunav-wrapper{
     display: block;
+    >.nav{
+      width: 100%;
+    }
+  }
+  .nav{
+    width: 960px;
+  }
+}
+@media (min-width:1440px) {
+  .nav{
+    width: 1440px;
   }
 }
 </style>
