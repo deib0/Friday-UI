@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts">
-import Switch1Demo from './Switch1Demo.vue'
+import Switch1Demo from './Switch1.Demo.vue'
 import Demo from './Demo.vue'
 import 'prismjs';
 import 'prismjs/themes/prism.css'
