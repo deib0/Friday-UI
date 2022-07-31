@@ -67,6 +67,7 @@ $grey:#3c3c3cb3;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-bottom: 1px solid #e7e7e7;
   >.tagline{
     display: flex;
     flex-direction: column;
@@ -86,7 +87,7 @@ $grey:#3c3c3cb3;
     color: $grey;
     margin-top: 24px;
     margin-bottom: 48px;
-
+    padding: 20px;
   }
   > .actions{
     margin-top: 10px;

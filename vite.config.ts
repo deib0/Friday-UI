@@ -5,6 +5,8 @@ import {baseParse} from '@vue/compiler-core'
 
 export default {
   plugins: [md()],
+  base:'./',
+  assetsDir:'assets',
   // 给组件添加源代码
   vueCustomBlockTransforms: {
     demo: (options) => {
