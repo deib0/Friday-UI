@@ -5,7 +5,7 @@
     <Topnav class="nav" v-model:menuVisible="menuVisible" v-on:scrollTop="scrollTop" />
     <div class="content">
       <Aside class="aside1" />
-      <main ref="main">
+      <main ref="main" class="main">
         <router-view />
       </main>
     </div>
@@ -44,7 +44,7 @@ $green: #42B883;
     width: 1440px;
     margin: 0 auto;
     overflow: hidden;
-    main{
+    .main{
       flex-grow: 1;
       flex-shrink: 1;
       padding: 62px;
@@ -91,6 +91,9 @@ $green: #42B883;
   .layout{
     .content{
       width: 960px;
+      .main{
+          width: calc(100% - 250px);
+        }
     }
     .aside2,
     .dialog{
@@ -102,6 +105,9 @@ $green: #42B883;
   .layout {
       .content{
         width: 1440px;
+        .main{
+          width: calc(100% - 250px);
+        }
       }
   }
 }
