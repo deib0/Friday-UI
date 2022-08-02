@@ -13,12 +13,6 @@
         <Switch v-model:checked="checked"
         activeColor="orange"
         inactiveColor="purple"
-        :disabled="true"
-        />
-        <Switch :checked="false"
-        activeColor="orange"
-        inactiveColor="purple"
-        :disabled="true"
         />
     </div>
 </template>

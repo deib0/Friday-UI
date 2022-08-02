@@ -1,25 +1,28 @@
 <template>
-  <div>
-    <Button theme="button" size="big" level="danger">
-      我是一个按钮
-    </Button>
-    <Button theme="link" size="small" level="main">
-      我是一个按钮
-    </Button>
-    <Button theme="text">
-      我是一个按钮
-    </Button>
-    <Button disabled>
-      我是一个按钮
-    </Button>
-  </div>
+<h1>Button 按钮</h1>
+<p>常用的操作按钮。</p>
+<Demo :component="ButtonDemo1" />
+<Demo :component="ButtonDemo2" />
+<Demo :component="ButtonDemo3" />
+<Demo :component="ButtonDemo4" />
 </template>
 
 <script lang="ts">
 import Button from '../lib/Button.vue'
+import ButtonDemo1 from './ButtonDemo1.vue'
+import ButtonDemo2 from './ButtonDemo2.vue'
+import ButtonDemo3 from './ButtonDemo3.vue'
+import ButtonDemo4 from './ButtonDemo4.vue'
+import Demo from './Demo.vue' 
 export default {
-  components:{ Button },
+  components:{ Button,Demo },             
   setup() {  
+    return {
+      ButtonDemo1,
+      ButtonDemo2,
+      ButtonDemo3,
+      ButtonDemo4
+    }
   },
 }
 </script>
