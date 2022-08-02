@@ -1,26 +1,18 @@
 <template>
-  <Button @click="showDialog">展示</Button>
+  <h1>Dialog 对话框</h1>
+  <p>在保留当前页面状态的情况下，告知用户并承载相关操作。</p>
+  <Demo :component="DialogDemo1"/>
 </template>
 
 <script lang="ts">
-import Dialog from '../lib/Dialog.vue'
-import Button from '../lib/Button.vue'
-import {openDialog} from '../lib/openDialog'
-export default{
-  components:{ Dialog, Button },
-  setup() {
-    // 展示Dialog
-    const showDialog=()=>{
-      // 输入Dialog的配置项
-      const options={
-        title(){return '提示'},
-        content(){return '内容'},
-        ok(){console.log('ok')},
-        cancel(){console.log('cancel')}
-        }
-      openDialog(options)
+import Demo from './Demo.vue' 
+import DialogDemo1 from './DialogDemo1.vue'
+export default {
+  components:{ Demo },             
+  setup() {  
+    return {
+      DialogDemo1
     }
-      return {showDialog}
   },
 }
 </script>
