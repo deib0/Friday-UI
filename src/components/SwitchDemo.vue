@@ -1,10 +1,10 @@
 <template>
   <h1>Switch 组件示例</h1>
-  <Demo :component="Switch1Demo" />
+  <Demo :component="Switch1" />
 </template>
 
 <script lang="ts">
-import Switch1Demo from './Switch1.Demo.vue'
+import Switch1 from './Switch1.vue'
 import Demo from './Demo.vue'
 import 'prismjs';
 import 'prismjs/themes/prism.css'
@@ -13,7 +13,7 @@ export default {
     components: { Demo },
     setup(){
       return {
-      Switch1Demo,
+      Switch1,
       Prism 
       }
     }
