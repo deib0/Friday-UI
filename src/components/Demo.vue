@@ -1,6 +1,6 @@
 <template>
 <div class="demo">
-  <h2>{{component.__sourceCodeTitle}}</h2>
+  <h2>{{title}}</h2>
   <div class="demo-component">
     <component :is="component" />
   </div>
@@ -8,6 +8,7 @@
     <Button @click="toggleCode">查看代码</Button>
   </div>
   <div class="demo-code" v-if="codeVisible">
+  <span>{{description}}</span>
     <pre class="language-html" v-html="Prism.highlight(component.__sourceCode, Prism.languages.html, 'html')" />
   </div>
 
@@ -25,7 +26,10 @@ export default {
     component: Object
   },
   components:{Button},
-  setup() {
+  setup(props) {
+    const string:string =props.component.__sourceCodeTitle
+    const title =string.trim().split(" ")[0]
+    const description =string.trim().split(" ")[1]
     const codeVisible=ref<Boolean>(false)
     const toggleCode=()=>{
       codeVisible.value=!codeVisible.value
@@ -33,7 +37,9 @@ export default {
     return {
       Prism,
       toggleCode,
-      codeVisible
+      codeVisible,
+      title,
+      description
     }
   }
 }
