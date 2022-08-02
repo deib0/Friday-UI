@@ -8,7 +8,7 @@
     <Button @click="toggleCode">查看代码</Button>
   </div>
   <div class="demo-code" v-if="codeVisible">
-  <span>{{description}}</span>
+  <span class="description">{{description}}</span>
     <pre class="language-html" v-html="Prism.highlight(component.__sourceCode, Prism.languages.html, 'html')" />
   </div>
 
@@ -69,6 +69,13 @@ $border-color: #d9d9d9;
       line-height: 1.1;
       font-family: Consolas, 'Courier New', Courier, monospace;
       margin: 0;
+    }
+  }
+  .description{
+    line-height: 2;
+    .highLight{
+      padding: 2px 6px;
+      background: #fafafa;
     }
   }
 }

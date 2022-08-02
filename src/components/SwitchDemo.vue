@@ -1,10 +1,13 @@
 <template>
   <h1>Switch 组件示例</h1>
+  <p>表示两种相互对立的状态间的切换，多用于触发「开/关」。</p>
   <Demo :component="Switch1" />
+  <Demo :component="Switch2" />
 </template>
 
 <script lang="ts">
 import Switch1 from './Switch1.vue'
+import Switch2 from './Switch2.vue';
 import Demo from './Demo.vue'
 import 'prismjs';
 import 'prismjs/themes/prism.css'
@@ -14,7 +17,8 @@ export default {
     setup(){
       return {
       Switch1,
-      Prism 
+      Prism,
+      Switch2
       }
     }
 }
