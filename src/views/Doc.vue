@@ -41,9 +41,12 @@ $green: #42B883;
   .content{
     display: flex;
     flex-direction: row;
-    width: 1440px;
+    width: 100%;
     margin: 0 auto;
     overflow: hidden;
+    .aside1{
+      height: 100vh;
+    }
     .main{
       flex-grow: 1;
       flex-shrink: 1;
@@ -69,7 +72,7 @@ $green: #42B883;
     top: 0;
     right: 0;
     width: calc(100% - 250px);
-    height: 100%;
+    height: 100vh;
     &.xxx{
       transition: all 500ms;
       visibility: visible;
@@ -80,7 +83,6 @@ $green: #42B883;
 @media(max-width:960px){
   .layout{
     .content{
-      width: 100%;
       .aside1{
         display: none;
       }
@@ -90,7 +92,6 @@ $green: #42B883;
 @media(min-width:960px){
   .layout{
     .content{
-      width: 960px;
       .main{
           width: calc(100% - 250px);
         }
@@ -104,7 +105,6 @@ $green: #42B883;
 @media (min-width:1440px) {
   .layout {
       .content{
-        width: 1440px;
         .main{
           width: calc(100% - 250px);
         }

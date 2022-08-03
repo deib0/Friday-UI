@@ -2,6 +2,9 @@
     <aside class="aside">
         <h2>菜单</h2>
         <ol>
+          <li class="title">
+              开发指南
+          </li>
           <li>
             <router-link to="/doc/introduce">介绍</router-link>
           </li>
@@ -10,6 +13,9 @@
           </li>
           <li>
             <router-link to="/doc/get-started">开始使用</router-link>
+          </li>
+          <li class="title">
+            组件
           </li>
           <li>
             <router-link to="/doc/layout">Layout 布局</router-link>
@@ -29,76 +35,6 @@
           <li>
             <router-link to="/doc/tooltip">Tooltip 文字提示</router-link>
           </li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
-          <li>1111</li>
         </ol>
       </aside>
 </template>
@@ -115,9 +51,9 @@ $green: #42B883;
 .aside{
       width: 250px;
       height: 100%;
-      font-weight: 700;
       padding: 0 32px;
       overflow-y: scroll;
+      font-size: 16px;
       >h2{
         padding: 10px 0;
         font-size: 18px;
@@ -128,6 +64,10 @@ $green: #42B883;
         >li{
           padding: 10px;
           color: $grey;
+          &.title{
+            color: #000;
+            font-weight: 700;
+          }
           :hover{
             color: #213547;
           }
