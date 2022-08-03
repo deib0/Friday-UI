@@ -35,7 +35,7 @@ export default {
                 const {left:left2}=selectedItem.value.getBoundingClientRect()
                 const left =left2-left1+'px'
                 indicator.value.style.left=left
-            })
+            },{flush:'post'})
         })
         // 拿到子组件并检查子组件的类型
         const defaults = context.slots.default()
