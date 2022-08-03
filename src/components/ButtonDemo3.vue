@@ -7,7 +7,6 @@
     </Button>
 </template>
 <script lang="ts">
-import { ref } from 'vue'
 import Button from '../lib/Button.vue'
 export default {
     components:{

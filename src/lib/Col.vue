@@ -7,6 +7,12 @@
 <script lang="ts">
 export default {
     name:"Col",
+    props:{
+        span:{
+            type:Number,
+            default:0
+        }
+    },
     setup(){
         
     }
