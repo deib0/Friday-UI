@@ -12,6 +12,7 @@ import introduce from './markdown/introduce.md'
 import getStarted from './markdown/get-started.md'
 import install from './markdown/install.md'
 import { h } from "vue";
+import TooltipDemo from './components/TooltipDemo.vue'
 
 const history = createWebHashHistory();
 const md = string => h(Markdown, { content: string, key: string })
@@ -27,6 +28,7 @@ export const router = createRouter({
         { path: "layout", component: LayoutDemo },
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },
+        { path: "tooltip", component: TooltipDemo },
         { path: "dialog", component: DialogDemo },
         { path: "tabs", component: TabsDemo },
         { path: "introduce", component:md(introduce)},

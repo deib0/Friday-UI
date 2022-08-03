@@ -26,6 +26,9 @@
           <li>
             <router-link to="/doc/tabs">Tabs 标签页</router-link>
           </li>
+          <li>
+            <router-link to="/doc/tooltip">Tooltip 文字提示</router-link>
+          </li>
           <li>1111</li>
           <li>1111</li>
           <li>1111</li>
