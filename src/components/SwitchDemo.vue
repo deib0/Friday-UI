@@ -3,6 +3,7 @@
   <p>表示两种相互对立的状态间的切换，多用于触发「开/关」。</p>
   <Demo :component="Switch1" />
   <Demo :component="Switch2" />
+  <Markdown :content="switchApi"/>
 </template>
 
 <script lang="ts">
@@ -11,14 +12,17 @@ import Switch2 from './Switch2.vue';
 import Demo from './Demo.vue'
 import 'prismjs';
 import 'prismjs/themes/prism.css'
+import Markdown from './Markdown.vue';
+import switchApi from '../markdown/switchApi.md'
 const Prism = (window as any).Prism
 export default {
-    components: { Demo },
+    components: { Demo,Markdown },
     setup(){
       return {
       Switch1,
       Prism,
-      Switch2
+      Switch2,
+      switchApi
       }
     }
 }

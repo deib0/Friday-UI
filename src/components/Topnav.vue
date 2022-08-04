@@ -98,7 +98,8 @@ export default {
   flex-direction: row;
   justify-content: center;
   >.nav{
-    padding: 0 32px;
+    width: 100%;
+    padding: 0 72px;
     line-height: 55px;
     display: flex;
     flex-direction: row;
@@ -160,25 +161,5 @@ export default {
 .menunav-wrapper{
     display: none;
 }
-@media (min-width:960px) {
-  .nav{
-    width: 100%;
-  }
-}
-@media(max-width:960px){
-  .menunav-wrapper{
-    display: block;
-    >.nav{
-      width: 100%;
-    }
-  }
-  .nav{
-    width: 960px;
-  }
-}
-@media (min-width:1440px) {
-  .nav{
-    width: 1440px;
-  }
-}
+
 </style>
