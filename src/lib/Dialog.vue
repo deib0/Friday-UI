@@ -54,9 +54,7 @@ setup(props,content){
         }
     }
     const onOk = () => {
-      if (props.ok?.() !== false) {
         close()
-      }
     }
     const onCancel=()=>{
         content.emit('cancel')
