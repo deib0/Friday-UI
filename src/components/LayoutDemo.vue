@@ -4,6 +4,7 @@
   <Demo :component="LayoutDemo1"/>
   <Demo :component="LayoutDemo2"/>
   <Demo :component="LayoutDemo3"/>
+  <Markdown :content="layoutApi" />
 </template>
 
 <script lang="ts">
@@ -11,10 +12,12 @@ import Demo from "./Demo.vue"
 import LayoutDemo1 from "./LayoutDemo1.vue"
 import LayoutDemo2 from "./LayoutDemo2.vue"
 import LayoutDemo3 from "./LayoutDemo3.vue"
+import Markdown from './Markdown.vue';
+import layoutApi from '../markdown/layoutApi.md'
 export default {
-    components: {Demo},
+    components: {Demo,Markdown},
     setup(){
-      return {LayoutDemo1,LayoutDemo2,LayoutDemo3}
+      return {LayoutDemo1,LayoutDemo2,LayoutDemo3,layoutApi}
     }
 }
 </script>
@@ -27,3 +30,5 @@ export default {
   }
 }
 </style>
+
+

@@ -16,7 +16,7 @@ export default {
         },
         content:{
             type:String,
-            default:'提示提示'
+            default:'无内容'
         }
     },
     setup() {
