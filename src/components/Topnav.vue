@@ -126,13 +126,14 @@ export default {
             background: #fff;
             border-radius: 5px;
             width: 190px;
-            font-size: 5px;
+            font-size: 13px;
             position: absolute;
-            top: 10px;
+            top: 40px;
             right: 15px;
             box-shadow: 0px 0px 2px .1px black;
             >li{
               &:hover{
+                display: none;
                 color:#42b883;
               }
               >a{
@@ -145,9 +146,10 @@ export default {
             .doc-menu{
               visibility:visible;
               padding: 12px 0;
-              font-size: 13px;
               padding: 0 16px;
-              top: 40px;
+              >li{
+                display: block;
+              }
             }
           }
         }
@@ -161,5 +163,9 @@ export default {
 .menunav-wrapper{
     display: none;
 }
-
+@media(max-width:960px){
+.menunav-wrapper{
+    display: block;
+}
+}
 </style>
