@@ -31,11 +31,12 @@ export default {
 }
 </script>
 ```
+<center>
+🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉
 
-🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉
+🎉 &nbsp;&nbsp;&nbsp;你成功了！去了解更多特性吧！&nbsp;&nbsp;&nbsp;🎉
 
-🎉你成功了！去了解更多特性吧！🎉
+🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉
+</center>
 
-🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉
-
-下一步：[Switch 组件](#/doc/switch)
+下一步：[Layout 布局](#/doc/layout)

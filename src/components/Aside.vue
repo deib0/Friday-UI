@@ -35,6 +35,9 @@
           <li>
             <router-link to="/doc/tooltip">Tooltip 文字提示</router-link>
           </li>
+          <li>
+            更多正在开发。。
+          </li>
         </ol>
       </aside>
 </template>
@@ -64,6 +67,7 @@ $green: #42B883;
         >li{
           padding: 10px;
           color: $grey;
+          white-space: nowrap;
           &.title{
             color: #000;
             font-weight: 700;

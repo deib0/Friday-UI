@@ -7,4 +7,4 @@ Friday UI是一个基于 Vue.js 的 UI 框架，参考了**Element UI** / **Ant 
 
 🙌快去安装吧！
 
-下一步：[安装]('#/doc/install)
+下一步：[安装](#/doc/install)
