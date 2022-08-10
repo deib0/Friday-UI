@@ -2,7 +2,6 @@
   <h1>Dialog 对话框</h1>
   <p>在保留当前页面状态的情况下，告知用户并承载相关操作。</p>
   <Demo :component="DialogDemo1"/>
-  <Demo :component="DialogDemo1"/>
   <Markdown :content="dialogApi" />
 </template>
 

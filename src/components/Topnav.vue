@@ -17,10 +17,11 @@
             <li><a href="#/doc/get-started">开始</a></li>
             <li><a href="#/doc/install">安装</a></li>
             <li><a href="#/doc/introduce">介绍</a></li>
+            <li><a href="#/doc/layout">组件</a></li>
           </ul>
         </li>
         <li>
-          <a href="https://github.com/">
+          <a href="https://github.com/deib0/Friday-UI">
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-github" ></use>
             </svg>
@@ -64,7 +65,7 @@ export default {
       if (navigator.clipboard) {
         console.log('true')
         navigator.clipboard.writeText(text);
-        alert('copy!')
+        alert('复制成功!')
       } else {
         console.log('false')
         var textarea = document.createElement('textarea');
@@ -76,7 +77,7 @@ export default {
         textarea.select();
         document.execCommand('copy', true);
         document.body.removeChild(textarea);
-        alert('copy!')
+        alert('复制成功!')
       };
     }
   const scrollTop=()=>{

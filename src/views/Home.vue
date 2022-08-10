@@ -13,7 +13,7 @@
             <use xlink:href="#icon-right" ></use>
           </svg>
         </router-link>
-        <a href="https://github.com" class="github">
+        <a href="https://github.com/deib0/Friday-UI" class="github">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-github" ></use>
           </svg>
