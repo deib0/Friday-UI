@@ -164,6 +164,13 @@ export default {
 .menunav-wrapper{
     display: none;
 }
+@media(max-width:500px){
+.nav-wrapper{
+  .nav{
+    padding: 0 20px;
+  }
+}
+}
 @media(max-width:960px){
 .menunav-wrapper{
     display: block;

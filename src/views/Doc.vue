@@ -80,6 +80,15 @@ $green: #42B883;
     }
   }
 }
+@media(max-width:500px){
+  .layout{
+    .content{
+      .main{
+        padding: 62px 20px; 
+      }
+    };
+  }
+}
 @media(max-width:960px){
   .layout{
     .content{
